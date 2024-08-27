@@ -45,7 +45,7 @@ public class Orc extends Characters {
     //Brain methods
     public void charge(Characters Enemy)
     {
-        Enemy.hp -=30;
+        Enemy.hp -=20;
 
     }
     //to String

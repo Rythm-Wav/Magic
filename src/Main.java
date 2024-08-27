@@ -8,7 +8,7 @@ public class Main {
         System.out.println("Wizard101");
 
 
-        System.out.println("The great bard Saltine has been ambushed by an Orc!");
+        System.out.println("The great bard Saltine has been ambushed by an Orc!\n");
 
 
         Weapons instrument = new Weapons("instrument", 20, 15);
@@ -23,42 +23,47 @@ public class Main {
 
         Scanner key = new Scanner(System.in);
 
+        while (Saltine.hp != 0)
+        {
+            System.out.println("The orc charges at Saltine with immense speed!\n" +
+                            "To use the evade skill type 1\n" +
+                            "To use the block skill type 2");
+            Reply = key.nextLine();
 
-        System.out.println("The orc charges at Saltine with immense speed!\n" +
-                "To use the evade skill type 1\n" +
-                "To use the block skill type 2" );
-        Reply = key.nextLine();
-        int RandomInt = (int)(Math.random() * 2);
-        
-        if (Reply.equals("1")) {
-            Saltine.evade();
-            System.out.println("Saltine evades and is unscathed!");
-            if (RandomInt == 0) {
-                Saltine.evade();
+            if (Reply.equals("1")) {
+                RandomInt = (int) (Math.random() * 2);
+                if (RandomInt == 0) {
+                    Saltine.evade();
+                    System.out.println("Saltine evades and is unscathed!");
+                }
+                else {
+                    Golgoroth.charge(Saltine);
+                }
             }
             else {
-                Golgoroth.charge(Saltine);
+                Saltine.block();
+                System.out.println("Saltine blocks the attack!\n *Saltine takes 7 damage*");
+            }
+
+            if (Saltine.hp == 0)
+            {
+                break;
+            }
+
+            System.out.println("Saltine stabilizes and prepares for an attack!");
+            System.out.println("To use the attack spell type 1\n " +
+                                "To use the healing spell type 2");
+            Reply = key.nextLine();
+
+            if (Reply.equals("1")) {
+                Saltine.sing1(Golgoroth);
+                System.out.println("Saltine sings a song of fervor!\n *Orc takes 35 damage.*");
+            }
+            if (Reply.equals("2")) {
+                Saltine.sing2();
+                System.out.println("Saltine sings a song of recovery!\n *Saltine gains 10 hp");
             }
         }
-        System.out.println("Saltine stabilizes and prepares for an attack!");
-        if (Reply.equals("2"))
-        {
-            Saltine.block();
-            System.out.println("Saltine blocks the attack!\n *Saltine takes 7 damage*");
-        }
-        System.out.println("To use the attack spell type 1\n " +
-                "To use the healing spell type 2");
-        Reply = key.nextLine();
-
-        if (Reply.equals("1")) {
-            Saltine.sing1(Golgoroth);
-            System.out.println("Saltine sings a song of fervor!\n *Orc takes 35 damage.*");
-        }
-        if (Reply.equals("2")) {
-            Saltine.sing2();
-            System.out.println("Saltine sings a song of recovery!\n *Saltine gains 10 hp");
-        }
-
-
+        System.out.println("Saltine has fallen...\n GAME OVER");
     }
 }
