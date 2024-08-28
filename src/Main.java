@@ -8,7 +8,16 @@ public class Main {
         System.out.println("Wizard101");
 
 
-        System.out.println("The great bard Saltine has been ambushed by an Orc!\n");
+        System.out.println("On a normal day in Cosmodeus, the great bard Saltine of the renowned house Flaur, was foraging for berries.\n" +
+                " Saltine had been out for about 3 days now on a journey through the Woods of the Broken Trees to find a rather peculiar object.\n" +
+                "This object had been sought after and searched for since the days when Saltine's great great great great great great...(you get it) Grandpa was the great Bard of Cosomodeus.\n" +
+                "No bard had ever been successful in finding it before and it was said to have a mind of its own... The object in question was named the Two-Chord.\n" +
+                "Its original owner is unknown, but left a note stating they hid it deep in the forest because of its absolute destructive power. If it fell into the wrong hands, the damage could be catastrophic.\n" +
+                "Though it lacks the tonal flexibility of any normal harp, the two chords it plays can be manipulated with the user's own magic power and musical prowess to create effects never fathomed before.\n" +
+                "It has also been said that the guards of the Two-Chord, an ancient orc and wizard, were personally hired by its creator and have unimaginable strength...\n" +
+                "While foraging, Saltine recaps the tales in her head... everything from how the orc charged at intruders... to what berries it likes...\n" +
+                "to how the orc is charging at Saltine with a handful of blueberries right now!!\n\n" +
+                "The ancient guard of the Two-Chord, Golgoroth, charges at Saltine with immense speed! ");
 
 
         Weapons instrument = new Weapons("instrument", 20, 15);
@@ -25,8 +34,7 @@ public class Main {
 
         while (Saltine.hp != 0)
         {
-            System.out.println("The orc charges at Saltine with immense speed!\n" +
-                            "To use the evade skill type 1\n" +
+            System.out.println("To use the evade skill type 1\n" +
                             "To use the block skill type 2");
             Reply = key.nextLine();
 
@@ -38,16 +46,12 @@ public class Main {
                 }
                 else {
                     Golgoroth.charge(Saltine);
+                    System.out.println("Salitne is blown back by the seemingly unstoppable force!\n She takes 20 damage...");
                 }
             }
             else {
                 Saltine.block();
                 System.out.println("Saltine blocks the attack!\n *Saltine takes 7 damage*");
-            }
-
-            if (Saltine.hp == 0)
-            {
-                break;
             }
 
             System.out.println("Saltine stabilizes and prepares for an attack!");
@@ -62,6 +66,9 @@ public class Main {
             if (Reply.equals("2")) {
                 Saltine.sing2();
                 System.out.println("Saltine sings a song of recovery!\n *Saltine gains 10 hp");
+
+                if(Golgoroth.hp <=0)
+                    System.out.println("Saltine has defeated the Orc!");
             }
         }
         System.out.println("Saltine has fallen...\n GAME OVER");
