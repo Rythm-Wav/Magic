@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 
-public class Main {
+public static class Main {
     public static void main(String[] args) {
         String Reply;
         int RandomInt;
@@ -32,10 +32,9 @@ public class Main {
 
         Scanner key = new Scanner(System.in);
 
-        while (Saltine.hp != 0)
-        {
+        while (Saltine.hp != 0) {
             System.out.println("To use the evade skill type 1\n" +
-                            "To use the block skill type 2");
+                    "To use the block skill type 2");
             Reply = key.nextLine();
 
             if (Reply.equals("1")) {
@@ -43,34 +42,55 @@ public class Main {
                 if (RandomInt == 0) {
                     Saltine.evade();
                     System.out.println("Saltine evades and is unscathed!");
-                }
-                else {
+                } else {
                     Golgoroth.charge(Saltine);
                     System.out.println("Salitne is blown back by the seemingly unstoppable force!\n She takes 20 damage...");
                 }
-            }
-            else {
+            } else {
                 Saltine.block();
                 System.out.println("Saltine blocks the attack!\n *Saltine takes 7 damage*");
             }
 
             System.out.println("Saltine stabilizes and prepares for an attack!");
             System.out.println("To use the attack spell type 1\n " +
-                                "To use the healing spell type 2");
+                    "To use the healing spell type 2");
             Reply = key.nextLine();
 
             if (Reply.equals("1")) {
                 Saltine.sing1(Golgoroth);
-                System.out.println("Saltine sings a song of fervor!\n *Orc takes 35 damage.*");
+                System.out.println("Saltine sings a song of fervor!\n Orc takes 35 damage.*");
             }
             if (Reply.equals("2")) {
                 Saltine.sing2();
                 System.out.println("Saltine sings a song of recovery!\n *Saltine gains 10 hp");
-
-                if(Golgoroth.hp <=0)
-                    System.out.println("Saltine has defeated the Orc!");
             }
+
+            System.out.println("The orc raises its Giant club and prepares for a critical strike!\n To use the block skill press 1\n To use the counter-magic skill press 2");
+
+            Reply = key.nextLine();
+            if (Reply.equals("1")) {
+                Saltine.block2();
+                System.out.println("Saltine attempts to block the Orc's club!\n Saltine takes 50 damage.*");
+            } else {
+                Saltine.counterMagic(Golgoroth);
+                System.out.println("Saltine parries the attack, and strikes back twice as hard!\n The Orc is now weakened...\n To attack, press 1\nTo heal, press 2\nTo persuade the Orc, press 3");
+            }
+
+            Reply = key.nextLine();
+            if (Reply.equals("1")) {
+            Saltine.sing1(Golgoroth);
+            }
+            if (Reply.equals("2")) {
+            Saltine.sing2();
+            } else {
+            System.out.println("Saltine persuades the weakened Orc and he joins her party!");
+
+            if (Golgoroth.hp <= 0)
+                System.out.println("Saltine has defeated the Orc!");
         }
-        System.out.println("Saltine has fallen...\n GAME OVER");
+            System.out.println("Saltine has fallen...\n GAME OVER");
+    }
+
+
     }
 }

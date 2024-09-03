@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Bard extends Characters {
     //1 instance variables
     Weapons instrument;
@@ -65,6 +63,15 @@ public class Bard extends Characters {
     {
         hp -= 7;
     }
+    public void counterMagic(Characters Enemy)
+    {
+        Enemy.hp -=60;
+    }
+    public void block2()
+    {
+        hp -=50;
+    }
+
     //to String
 
     public String toString()
