@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 
-public static class Main {
+public class Main {
     public static void main(String[] args) {
         String Reply;
         int RandomInt;
@@ -87,8 +87,24 @@ public static class Main {
 
             if (Golgoroth.hp <= 0)
                 System.out.println("Saltine has defeated the Orc!");
+
+
+            break;
         }
-            System.out.println("Saltine has fallen...\n GAME OVER");
+
+            System.out.println("Saltine heals the orc and after they settle their differences in conversation,\n " +
+                    "the Orc agrees to assist Saltine in her adventure. He tells her of the second guard, deeper in the forest near where the ancient weapon is held...\n" +
+                    "After a rather treacherous journey, Saltine and Golgoroth reach the monolithic chambers where the Two-Chord is held.\n" +
+                    "Seemingly from thin air, a wizard appears, waving a wand adorned with charms and talismans, presumably \n" +
+                    "accrued over centuries.");
+            System.out.println("The wizard conjures an immense fireball and sends it hurling at the party!");
+
+            while (Saltine.hp != 0) {
+
+            }
+
+            if (Saltine.hp <=0)
+             System.out.println("Saltine has fallen...\n GAME OVER");
     }
 
 

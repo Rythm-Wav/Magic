@@ -45,11 +45,11 @@ public class Wizard extends Characters {
     //Brain methods
     public void hugerockspell(Characters Enemy)
     {
-        Enemy.hp -=10;
+        Enemy.hp -=50;
 
     }
-    public void vitaminb12spell() {
-        hp += 10;
+    public void Fireball() {
+        hp -= 40;
         //to String
     }
     public String toString()
