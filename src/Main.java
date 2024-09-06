@@ -33,8 +33,8 @@ public class Main {
         Scanner key = new Scanner(System.in);
 
         while (Saltine.hp != 0) {
-            System.out.println("To use the evade skill type 1\n" +
-                    "To use the block skill type 2");
+            System.out.println("To use the evade spell type 1\n" +
+                    "To use the block spell type 2");
             Reply = key.nextLine();
 
             if (Reply.equals("1")) {
@@ -65,7 +65,7 @@ public class Main {
                 System.out.println("Saltine sings a song of recovery!\n *Saltine gains 10 hp");
             }
 
-            System.out.println("The orc raises its Giant club and prepares for a critical strike!\n To use the block skill press 1\n To use the counter-magic skill press 2");
+            System.out.println("The orc raises its Giant club and prepares for a critical strike!\n To use the block spell press 1\n To use the counter-magic spell press 2");
 
             Reply = key.nextLine();
             if (Reply.equals("1")) {
@@ -78,35 +78,59 @@ public class Main {
 
             Reply = key.nextLine();
             if (Reply.equals("1")) {
-            Saltine.sing1(Golgoroth);
+                Saltine.sing1(Golgoroth);
             }
             if (Reply.equals("2")) {
-            Saltine.sing2();
+                Saltine.sing2();
             } else {
-            System.out.println("Saltine persuades the weakened Orc and he joins her party!");
+                System.out.println("Saltine persuades the weakened Orc and he joins her party!");
 
-            if (Golgoroth.hp <= 0)
-                System.out.println("Saltine has defeated the Orc!");
+                if (Golgoroth.hp <= 0)
+                    System.out.println("Saltine has defeated the Orc!");
 
 
-            break;
-        }
+                break;
+            }
 
             System.out.println("Saltine heals the orc and after they settle their differences in conversation,\n " +
                     "the Orc agrees to assist Saltine in her adventure. He tells her of the second guard, deeper in the forest near where the ancient weapon is held...\n" +
                     "After a rather treacherous journey, Saltine and Golgoroth reach the monolithic chambers where the Two-Chord is held.\n" +
                     "Seemingly from thin air, a wizard appears, waving a wand adorned with charms and talismans, presumably \n" +
                     "accrued over centuries.");
-            System.out.println("The wizard conjures an immense fireball and sends it hurling at the party!");
+            System.out.println("The wizard conjures an immense boulder and sends it hurling at the party!\n\n" +
+                    "To use the evade spell, press 1.\n" +
+                    "To use the block spell, press 2 ");
 
             while (Saltine.hp != 0) {
+                Reply = key.nextLine();
+
+                if (Reply.equals("1")) {
+                    RandomInt = (int) (Math.random() * 2);
+                    if (RandomInt == 0) {
+                        Saltine.evade();
+                        System.out.println("Saltine and the Orc dodge the boulder!\n No damage is taken.");
+                        System.out.println("The Orc tells Saltine to cover her ears, and then screams deafeningly, stunning the wizard!\nTo use the attack spell, press 1.\n To use the copy spell press 2");
+                        Reply = key.nextLine();
+                        if (Reply.equals("1")) {
+                            RandomInt = (int) (Math.random() * 2);
+                            if (RandomInt == 0) {
+                                Saltine.copy(Gandal);
+                            }
+                        }
+                    } else {
+                        Saltine.block3();
+                        System.out.println("Saltine and the Orc attempt to block! \n 30 damage is taken. \n Saltine and the Orc recover and prepare for an attack.\n To use the attack spell, press 1.\n To use the healing spell, press 2");
+                        if (Reply.equals("1")) {
+                            Saltine.sing1(Gandal);
+                        } else {
+                            Saltine.sing2();
+                        }
+                    }
+
+                    if (Saltine.hp <= 0)
+                        System.out.println("Saltine has fallen...\n GAME OVER");
+                }
+
 
             }
-
-            if (Saltine.hp <=0)
-             System.out.println("Saltine has fallen...\n GAME OVER");
-    }
-
-
-    }
-}
+        }}}
