@@ -46,9 +46,7 @@ public class Main {
                     Golgoroth.charge(Saltine);
                     System.out.println("Salitne is blown back by the seemingly unstoppable force!\n She takes 20 damage...");
                 }
-            } else {
-                Saltine.block();
-                System.out.println("Saltine blocks the attack!\n *Saltine takes 7 damage*");
+
             }
 
             System.out.println("Saltine stabilizes and prepares for an attack!");
@@ -73,35 +71,47 @@ public class Main {
                 System.out.println("Saltine attempts to block the Orc's club!\n Saltine takes 50 damage.*");
             } else {
                 Saltine.counterMagic(Golgoroth);
-                System.out.println("Saltine parries the attack, and strikes back twice as hard!\n The Orc is now weakened...\n To attack, press 1\nTo heal, press 2\nTo persuade the Orc, press 3");
+                System.out.println("Saltine parries the attack, and strikes back twice as hard!\n The Orc is now weakened...\n To attack, press 1\nTo persuade the Orc, press 2");
             }
 
             Reply = key.nextLine();
             if (Reply.equals("1")) {
                 Saltine.sing1(Golgoroth);
+                System.out.println("Saltine has defeated the Orc!");
+                System.out.println("""
+                        After defeating the Orc, Saltine finds a map with the location of the Two-Chord and its other guardian on it.\s
+                        She embarks on the journey and eventually reaches the monolithic chambers where the Two-Chord is held.
+                        Seemingly from thin air, a wizard appears, waving a wand
+                         adorned with charms and talismans, presumably accrued over centuries.""");
+                System.out.println("""
+                        The wizard conjures an immense boulder and sends it hurling at the Saltine!
+                        
+                        To use the evade spell, press 1.
+                        To use the block spell, press 2\s""");
+                Reply = key.nextLine();
+                if (Reply.equals("1"));{
+                    Saltine.evade();
+                }
+
             }
-            if (Reply.equals("2")) {
-                Saltine.sing2();
-            } else {
+            if (Reply.equals("2")){
                 System.out.println("Saltine persuades the weakened Orc and he joins her party!");
 
-                if (Golgoroth.hp <= 0)
-                    System.out.println("Saltine has defeated the Orc!");
-
-
-                break;
             }
 
-            System.out.println("Saltine heals the orc and after they settle their differences in conversation,\n " +
-                    "the Orc agrees to assist Saltine in her adventure. He tells her of the second guard, deeper in the forest near where the ancient weapon is held...\n" +
-                    "After a rather treacherous journey, Saltine and Golgoroth reach the monolithic chambers where the Two-Chord is held.\n" +
-                    "Seemingly from thin air, a wizard appears, waving a wand adorned with charms and talismans, presumably \n" +
-                    "accrued over centuries.");
-            System.out.println("The wizard conjures an immense boulder and sends it hurling at the party!\n\n" +
-                    "To use the evade spell, press 1.\n" +
-                    "To use the block spell, press 2 ");
+            System.out.println("""
+                    Saltine heals the orc and after they settle their differences in conversation,
+                    \s
+                    the Orc agrees to assist Saltine in her adventure. He tells her of the second guard, deeper in the forest near where the ancient weapon is held...
+                    After a rather treacherous journey, Saltine and Golgoroth reach the monolithic chambers where the Two-Chord is held.
+                    Seemingly from thin air, a wizard appears, waving a wand adorned with charms and talismans, presumably\s
+                    accrued over centuries.""");
+            System.out.println("""
+                    The wizard conjures an immense boulder and sends it hurling at the party!
+                    
+                    To use the evade spell, press 1.
+                    To use the block spell, press 2\s""");
 
-            while (Saltine.hp != 0) {
                 Reply = key.nextLine();
 
                 if (Reply.equals("1")) {
@@ -109,7 +119,9 @@ public class Main {
                     if (RandomInt == 0) {
                         Saltine.evade();
                         System.out.println("Saltine and the Orc dodge the boulder!\n No damage is taken.");
-                        System.out.println("The Orc tells Saltine to cover her ears, and then screams deafeningly, stunning the wizard!\nTo use the attack spell, press 1.\n To use the copy spell press 2");
+                        System.out.println("The Orc tells Saltine to cover her ears, and then claps with a deafening bang, stunning the wizard!\n" +
+                                "To use the attack spell, press 1.\n " +
+                                "To use the copy spell press 2");
                         Reply = key.nextLine();
                         if (Reply.equals("1")) {
                             RandomInt = (int) (Math.random() * 2);
@@ -133,4 +145,4 @@ public class Main {
 
 
             }
-        }}}
+        }}
