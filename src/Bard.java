@@ -74,7 +74,7 @@ public class Bard extends Characters {
         hp -= 30;
     }
     public void copy(Characters Enemy){
-        Enemy.hp -= 60;
+        Enemy.hp -= 99;
     }
     //to String
 

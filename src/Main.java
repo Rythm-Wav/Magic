@@ -77,7 +77,7 @@ public class Main {
             Reply = key.nextLine();
             if (Reply.equals("1")) {
                 Saltine.sing1(Golgoroth);
-                System.out.println("Saltine has defeated the Orc!");
+                System.out.println("Saltine deals the fatal blow to the orc with her song of fervor!");
                 System.out.println("""
                         After defeating the Orc, Saltine finds a map with the location of the Two-Chord and its other guardian on it.\s
                         She embarks on the journey and eventually reaches the monolithic chambers where the Two-Chord is held.
@@ -88,13 +88,36 @@ public class Main {
                         
                         To use the evade spell, press 1.
                         To use the block spell, press 2\s""");
-                Reply = key.nextLine();
-                if (Reply.equals("1"));{
-                    Saltine.evade();
-                }
 
+                Reply = key.nextLine();
+                if(Reply.equals("1")) {
+                    Saltine.evade();
+                    System.out.println("Saltine narrowly evades the boulder and prepares for a counterattack. \n" +
+                            "To use the attack spell, press 1.\n" +
+                            "To use the countermagic spell, press 2.");
+                }else{
+                    Saltine.block();
+                    System.out.println("Saltine blocks the attack and takes 7 damage. After recovering saltine prepares for a counterattack.");
+                }
+                Reply = key.nextLine();
+                if(Reply.equals("1")) {
+                    Saltine.sing1(Gandal);
+                    System.out.println("Saltine sings a song of fervor! Gandal takes 35 damage");
+                }
+                if (Reply.equals("2")) {
+                    RandomInt = (int) (Math.random() * 2);
+                    if (RandomInt == 0) {
+                        Saltine.counterMagic(Gandal);
+                        System.out.println("Saltine channels immense amounts of magic and deals a fatal blow to the wizard.\n" +
+                                "The Two-Chord is now ripe for the taking. Saltine walks into the hollow chambers and is overwhelmed\n" +
+                                "by the almost unbelievable magic power emanating from the lone harp.\n" +
+                                "After taking the Two-Chord back to Cosmodeus, Saltine is treated like a ruler, especially as she was\n" +
+                                "overthrown... ");
+
+                }
             }
-            if (Reply.equals("2")){
+
+            else{
                 System.out.println("Saltine persuades the weakened Orc and he joins her party!");
 
             }
@@ -113,36 +136,35 @@ public class Main {
                     To use the block spell, press 2\s""");
 
                 Reply = key.nextLine();
-
                 if (Reply.equals("1")) {
                     RandomInt = (int) (Math.random() * 2);
                     if (RandomInt == 0) {
                         Saltine.evade();
-                        System.out.println("Saltine and the Orc dodge the boulder!\n No damage is taken.");
-                        System.out.println("The Orc tells Saltine to cover her ears, and then claps with a deafening bang, stunning the wizard!\n" +
-                                "To use the attack spell, press 1.\n " +
-                                "To use the copy spell press 2");
-                        Reply = key.nextLine();
-                        if (Reply.equals("1")) {
-                            RandomInt = (int) (Math.random() * 2);
-                            if (RandomInt == 0) {
-                                Saltine.copy(Gandal);
-                            }
-                        }
-                    } else {
-                        Saltine.block3();
-                        System.out.println("Saltine and the Orc attempt to block! \n 30 damage is taken. \n Saltine and the Orc recover and prepare for an attack.\n To use the attack spell, press 1.\n To use the healing spell, press 2");
-                        if (Reply.equals("1")) {
-                            Saltine.sing1(Gandal);
-                        } else {
-                            Saltine.sing2();
-                        }
+                        System.out.println("""
+                                The party narrowly evades the boulder!
+                                
+                                Golgoroth makes a gesture to Saltine to cover her ears and she does so with magic.
+                                The orc then claps his hands with a deafening bang, stunning the wizard.
+                                """);
                     }
-
-                    if (Saltine.hp <= 0)
-                        System.out.println("Saltine has fallen...\n GAME OVER");
                 }
+                        System.out.println("During this downtime, Saltine analyzed the wizards spell and figured out\n" +
+                                "how to use it!\n" +
+                                "To use the copy spell and weaken Gandal, press 1!");
+                        if(Reply.equals("1")){
+                            Saltine.copy(Gandal);
+
+                            System.out.println("Saltine and the Orc have weakened Gandal!\n" +
+                                    "As Saltine is about to take the final blow, Golgoroth steps in front of her and\n" +
+                                    "tells her to stop. He turns around and says...This is not the Miyagido way, Saltine.\n" +
+                                    "He tells the wizard about her and he understands her mission. They all go into the chambers\n " +
+                                    "Together and blow the Two-Chord up in the woods, deforesting the entire nation. Then they live happily every after...\n" +
+                                    "Or did they....?");
+
+                        }
+
+
 
 
             }
-        }}
+        }}}
