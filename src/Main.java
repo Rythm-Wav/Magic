@@ -115,8 +115,7 @@ public class Main {
                     System.out.println("Saltine sings a song of fervor! Gandal takes 35 damage");
                 }
                 if (Reply.equals("2")) {
-                    RandomInt = (int) (Math.random() * 2);
-                    if (RandomInt == 0) {
+
                         Saltine.counterMagic(Gandal);
                         System.out.println("""
                                 Saltine channels immense amounts of magic and deals a fatal blow to the wizard.
@@ -126,7 +125,7 @@ public class Main {
                                 overthrown...\s""");
                         break;
 
-                    }
+
                 }
 
             }else{
@@ -152,29 +151,33 @@ public class Main {
                     RandomInt = (int) (Math.random() * 2);
                     if (RandomInt == 0) {
                         Saltine.evade();
-                        System.out.println("""
-                                The party narrowly evades the boulder!
-                                
-                                Golgoroth makes a gesture to Saltine to cover her ears and she does so with magic.
-                                The orc then claps his hands with a deafening bang, stunning the wizard.
-                                """);
+                        System.out.println("The party narrowly evades the boulder!\n\n Golgoroth makes a gesture to Saltine to cover her ears and she does so with magic.\n\n" +
+                                       "The orc then claps his hands with a deafening bang, stunning the wizard.\n\n");
                     }
                 }
                         System.out.println("""
                                 During this downtime, Saltine analyzed the wizards spell and figured out
                                 how to use it!
+                                \
                                 To use the copy spell and weaken Gandal, press 1!""");
+            Reply = key.nextLine();
                         if(Reply.equals("1")){
                             Saltine.copy(Gandal);
 
-                            System.out.println("""
-                                    Saltine and the Orc have weakened Gandal!
-                                    As Saltine is about to take the final blow, Golgoroth steps in front of her and
-                                    tells her to stop. He turns around and says...This is not the Miyagido way, Saltine.
-                                    He tells the wizard about her and he understands her mission. They all go into the chambers
-                                     \
-                                    Together and blow the Two-Chord up in the woods, deforesting the entire nation. Then they live happily every after...
-                                    Or did they....?""");
+                            System.out.println("Saltine copies the wizard's boulder attack and sends it back at him...\n The Wizard is weakened!");
+                            System.out.println(" \nAs Saltine is about to take the final blow, Golgoroth steps in front of her and tells her to stop.");
+                            System.out.println("\n He turns around and says...'This is not the Miyagido way, Saltine.'");
+                            System.out.println("\nThe Orc tells the Wizard about Saltine, and he understands her mission.\n" +
+                                    " They all go into the chambers together and blow the Two-Chord up in the woods, deforesting the entire nation.\n Then they live happily every after. Or did they....?\n" +
+                                    "\n Find out next time on Dragon Ball Z Kai");
+
+
+
+
+
+
+
+
 
                         }
 
